@@ -137,26 +137,21 @@
                         <div class="footer_widget wow fadeInDown">
                             <h2>Tag</h2>
                             <ul class="tag_nav">
-                                <li><a href="#">Games</a></li>
-                                <li><a href="#">Sports</a></li>
-                                <li><a href="#">Fashion</a></li>
-                                <li><a href="#">Business</a></li>
-                                <li><a href="#">Life &amp; Style</a></li>
-                                <li><a href="#">Technology</a></li>
-                                <li><a href="#">Photo</a></li>
-                                <li><a href="#">Slider</a></li>
+                                {% for categories in categories %}
+                                <li><a href="#">{{categories.name}}</a></li>
+                                {% endfor %}
                             </ul>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-4">
                         <div class="footer_widget wow fadeInRightBig">
                             <h2>Contact</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore magna aliqua Lorem ipsum dolor sit amet, consectetur
-                                adipisicing elit.</p>
+                            <p>You can reach us by phone (see below) or by submitting the form on the right-hand side.</p>
                             <address>
-                                Perfect News,1238 S . 123 St.Suite 25 Town City 3333,USA Phone: 123-326-789 Fax:
-                                123-546-567
+                                
+                                Baykar Milli S/İHA Sistemleri Ar-Ge ve Üretim Tesisi
+                                <br>+90 (212) 867 09 00 (08:00-18:00)
+                                <br>+90 (212) 867 09 48 (18:00-08:00)
                             </address>
                         </div>
                     </div>

@@ -45,6 +45,10 @@ class HomePgaeView(ListView):
         context['categories'] = Category.objects.all()
         context['news_list'] = News.published.all().order_by('-publish_time')[:3]
         context['defense_aviation_technologies'] = News.published.all().filter(category__name = "Defense and Aviation Technologies").order_by("-publish_time")[:5]
+        context['ai_tech'] = News.published.all().filter(category__name = "AI and Advanced Technologies").order_by("-publish_time")[:5]
+        context['defense_inventory'] = News.published.all().filter(category__name = "Defense Power and Inventory Updates").order_by("-publish_time")[:5]
+        context['national_production'] = News.published.all().filter(category__name = "National and Indigenous Production Achievements").order_by("-publish_time")
+        context['humanitarian_efforts'] = News.published.all().filter(category__name = "Humanitarian Aid and Social Responsibility").order_by("-publish_time")
         return context
 
 
