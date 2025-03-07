@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
 from .models import News, Category 
 from .forms import ContactForm
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView
 # Create your views here.
 
 def news_list(request):
@@ -20,15 +20,34 @@ def news_detail(request, id):
     return render(request, 'news/news_detail.html', context)
 
 def homePgaeView(request):
-    news_list = News.published.all().order_by('-publish_time')[:10]
+    news_list = News.published.all().order_by('-publish_time')[:4]
     categories = Category.objects.all()
-    defense_aviation_technologies = News.published.all().filter(category__name = "Defense and Aviation Technologies")
+    defense_aviation_technologies = News.published.all().filter(category__name = "Defense and Aviation Technologies").order_by("-publish_time")[:4]
+    defense_aviation_technologies_one = News.published.all().filter(category__name = "Defense and Aviation Technologies").order_by("-publish_time")[:1]
     context = {
         'news_list' : news_list,
         'categories' : categories,
-        "defense_aviation_technologies" : defense_aviation_technologies
+        "defense_aviation_technologies" : defense_aviation_technologies,
+        "defense_aviation_technologies_one" : defense_aviation_technologies_one
     }
     return render(request, 'news/home.html', context)
+
+
+
+
+class HomePgaeView(ListView):
+    model = News
+    template_name = 'news/home.html'
+    context_object_name = 'news'
+
+    def get_context_data(self, **kwargs):
+        context =  super().get_context_data(**kwargs)
+        context['categories'] = Category.objects.all()
+        context['news_list'] = News.published.all().order_by('-publish_time')[:3]
+        context['defense_aviation_technologies'] = News.published.all().filter(category__name = "Defense and Aviation Technologies").order_by("-publish_time")[:5]
+        return context
+
+
 
 
 def errorPageView(request):
