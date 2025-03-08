@@ -26,7 +26,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = ["muhsina-projects.uz", 'www.muhsina-projects.uz', '127.0.0.1']
+ALLOWED_HOSTS = ["muhsina-projects.online", 'www.muhsina-projects.online', '127.0.0.1']
 
 
 # Application definition
@@ -129,11 +129,11 @@ STATICFILES_FINDERS = [
 ]
 
 MEDIA_URL = 'media/'
-MEDIA_ROOT = '/home/djangomo/muhsina-projects.online/django/media',
+MEDIA_ROOT = '/home/djangomo/muhsina-projects.online/django/media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-STATICFILES_STORE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
