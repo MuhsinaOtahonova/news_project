@@ -1,13 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>News Detail Page</title>
-</head>
-<body>
-<h1>{{ news.title }}</h1>
-<p> Published date: {{ news.publish_time }} </p>
-<p> {{ news.body | linebreaks }} </p>
-</body>
-</html>
+{% extends 'news/base.html' %}
+{% load static %}
+{% block title %} {{ news.title }} {% endblock title %}
+{% block content %}
+
+<div class="fashion" style="display: flex; float:center; justify-content: center; align-items: center; min-height: 100vh; width: 100%;">
+    <div class="single_post_content" style="width: 70%;">
+        <ul class="business_catgnav wow fadeInDown">
+            <li>
+                <figure class="bsbig_fig"> <a href="{{news.get_absolute_url}}" class="featured_img"> <img alt=""
+                            src="{{ news.image.url }}"> <span class="overlay"></span> </a>
+                    <figcaption> <a href="{{news.get_absolute_url}}">{{news.title}}</a> </figcaption>
+                    <p>{{news.body}}</p>
+                    <p> Published date: {{ news.publish_time }} </p>
+                </figure>
+            </li>
+        </ul>
+    </div>
+</div>
+
+{% endblock content %}
