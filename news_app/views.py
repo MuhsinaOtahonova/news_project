@@ -12,8 +12,8 @@ def news_list(request):
     }
     return render(request, "news/news_list.html", context)
 
-def news_detail(request, id):
-    news = get_object_or_404(News, id=id, status = News.Status.Published)
+def news_detail(request, news):
+    news = get_object_or_404(News, slug=news, status = News.Status.Published)
     context = {
         "news" : news
     }
@@ -27,8 +27,7 @@ def homePgaeView(request):
     context = {
         'news_list' : news_list,
         'categories' : categories,
-        "defense_aviation_technologies" : defense_aviation_technologies,
-        "defense_aviation_technologies_one" : defense_aviation_technologies_one
+        "defense_aviation_technologies" : defense_aviation_technologies
     }
     return render(request, 'news/home.html', context)
 
@@ -92,3 +91,52 @@ class ContactPageView(TemplateView):
             "form":form
         }
         return render(request, 'news/contact.html', context)
+    
+
+
+
+class DefenseAviationTechnologiesView(ListView):
+        model = News
+        template_name = 'news/defense_aviation_technologies.html'
+        context_object_name = 'defense_aviation_technologies'
+
+        def get_queryset(self):
+            news = self.model.published.all().filter(category__name = "Defense and Aviation Technologies")
+            return news
+        
+class AiTechView(ListView):
+        model = News
+        template_name = 'news/ai_tech.html'
+        context_object_name = 'ai_tech'
+
+        def get_queryset(self):
+            news = self.model.published.all().filter(category__name = "AI and Advanced Technologies")
+            return news
+        
+
+class DefenseInventoryView(ListView):
+        model = News
+        template_name = 'news/defense_inventory.html'
+        context_object_name = 'defense_inventory'
+
+        def get_queryset(self):
+            news = self.model.published.all().filter(category__name = "Defense Power and Inventory Updates")
+            return news
+
+class NationalProductionView(ListView):
+        model = News
+        template_name = 'news/national_production.html'
+        context_object_name = 'national_production'
+
+        def get_queryset(self):
+            news = self.model.published.all().filter(category__name = "National and Indigenous Production Achievements")
+            return news
+
+class HumanitarianEffortsView(ListView):
+        model = News
+        template_name = 'news/humanitarian_efforts.html'
+        context_object_name = 'humanitarian_efforts'
+
+        def get_queryset(self):
+            news = self.model.published.all().filter(category__name = "Humanitarian Aid and Social Responsibility")
+            return news

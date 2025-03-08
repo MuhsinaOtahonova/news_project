@@ -43,7 +43,7 @@
                             </ul>
                         </div>
                         <div class="header_top_right">
-                            <p>Friday, December 05, 2045</p>
+                            <p>{% now "jS F Y H:i" %}</p>
                         </div>
                     </div>
                 </div>
@@ -69,19 +69,11 @@
                     <ul class="nav navbar-nav main_nav">
                         <li class="active"><a href="{% url 'home_page' %}"><span class="fa fa-home desktop-home"></span><span
                                     class="mobile-show">Home</span></a></li>
-                        <li><a href="#">Technology</a></li>
-                        <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                                aria-expanded="false">Mobile</a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">Android</a></li>
-                                <li><a href="#">Samsung</a></li>
-                                <li><a href="#">Nokia</a></li>
-                                <li><a href="#">Walton Mobile</a></li>
-                                <li><a href="#">Sympony</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Laptops</a></li>
-                        <li><a href="#">Tablets</a></li>
+                        <li><a href="{% url 'defense_inventory_page' %}">Defense Inventory</a></li>
+                        <li><a href="{% url 'national_production_page' %}">National Production</a></li>
+                        <li><a href="{% url 'humani_efforts_page' %}">Humanitarian Efforts</a></li>
+                        <li><a href="{% url 'defense_aviation_page' %}">Defense Aviation Technologies</a></li>
+                        <li><a href="{% url 'ai_technology_page' %}">Ai Tech</a></li>
                         <li><a href="{% url 'contact_page' %}">Contact Us</a></li>
                         <li><a href="{% url '404_page' %}">404 Page</a></li>
                     </ul>

@@ -9,9 +9,9 @@
         <div class="slick_slider">
 
           {% for news in news_list %}
-          <div class="single_iteam"> <a href="{% url 'news_detail_page' news.pk %}"> <img src="{{ news.image.url }}" alt=""></a>
+          <div class="single_iteam"> <a href="{{news.get_absolute_url}}"> <img src="{{ news.image.url }}" alt=""></a>
             <div class="slider_article">
-              <h2><a class="slider_tittle" href="{% url 'news_detail_page' news.pk %}">{{news.title | truncatewords:5 }}</a></h2>
+              <h2><a class="slider_tittle" href="{{news.get_absolute_url}}">{{news.title | truncatewords:5 }}</a></h2>
               <p>{{news.title}}</p>
             </div>
           </div>
@@ -28,8 +28,8 @@
 
               {% for news in news_list %}
               <li>
-                <div class="media"> <a href="{% url 'news_detail_page' news.pk %}" class="media-left"> <img alt="" src="{{ news.image.url }}"> </a>
-                  <div class="media-body"> <a href="{% url 'news_detail_page' news.pk %}" class="catg_title">{{news.title}}</a> </div>
+                <div class="media"> <a href="{{news.get_absolute_url}}" class="media-left"> <img alt="" src="{{ news.image.url }}"> </a>
+                  <div class="media-body"> <a href="{{news.get_absolute_url}}" class="catg_title">{{news.title}}</a> </div>
                 </div>
               </li>
               {% endfor %}
@@ -53,8 +53,8 @@
                 {% for defense_aviation_technologies in defense_aviation_technologies %}
                   {% if forloop.first %}
                 <li>
-                  <figure class="bsbig_fig"> <a href="{% url 'news_detail_page' defense_aviation_technologies.pk %}" class="featured_img"> <img alt="" src="{{ defense_aviation_technologies.image.url }}"> <span class="overlay"></span> </a>
-                    <figcaption> <a href="{% url 'news_detail_page' defense_aviation_technologies.pk %}">{{defense_aviation_technologies_one.title | truncatewords:5 }}</a> </figcaption>
+                  <figure class="bsbig_fig"> <a href="{{defense_aviation_technologies.get_absolute_url}}" class="featured_img"> <img alt="" src="{{ defense_aviation_technologies.image.url }}"> <span class="overlay"></span> </a>
+                    <figcaption> <a href="{{defense_aviation_technologies.get_absolute_url}}">{{defense_aviation_technologies_one.title | truncatewords:5 }}</a> </figcaption>
                     <p>{{defense_aviation_technologies.body}}</p>
                   </figure>
                 </li>
@@ -70,8 +70,8 @@
                 {% for defense_aviation_technologies in defense_aviation_technologies %}
                   {% if forloop.counter > 1 %}
                 <li>
-                  <div class="media wow fadeInDown"> <a href="{% url 'news_detail_page' defense_aviation_technologies.pk %}" class="media-left"> <img alt="" src="{{ defense_aviation_technologies.image.url }}"> </a>
-                    <div class="media-body"> <a href="{% url 'news_detail_page' defense_aviation_technologies.pk %}" class="catg_title">{{defense_aviation_technologies.title}}</a> </div>
+                  <div class="media wow fadeInDown"> <a href="{{defense_aviation_technologies.get_absolute_url}}" class="media-left"> <img alt="" src="{{ defense_aviation_technologies.image.url }}"> </a>
+                    <div class="media-body"> <a href="{{defense_aviation_technologies.get_absolute_url}}" class="catg_title">{{defense_aviation_technologies.title}}</a> </div>
                   </div>
                 </li>
                   {% endif %}
@@ -88,8 +88,8 @@
                   {% for ai_tech in ai_tech %}
                   {% if forloop.first %}
                   <li>
-                    <figure class="bsbig_fig"> <a href="{% url 'news_detail_page' ai_tech.pk %}" class="featured_img"> <img alt="" src="{{ ai_tech.image.url }}"> <span class="overlay"></span> </a>
-                      <figcaption> <a href="{% url 'news_detail_page' ai_tech.pk %}">{{ai_tech.title}}</a> </figcaption>
+                    <figure class="bsbig_fig"> <a href="{{ai_tech.get_absolute_url}}" class="featured_img"> <img alt="" src="{{ ai_tech.image.url }}"> <span class="overlay"></span> </a>
+                      <figcaption> <a href="{{ai_tech.get_absolute_url}}">{{ai_tech.title}}</a> </figcaption>
                       <p>{{ai_tech.body}}</p>
                     </figure>
                   </li>
@@ -99,8 +99,8 @@
                 <ul class="spost_nav">
                   {% for ai_tech in ai_tech %}
                   <li>
-                    <div class="media wow fadeInDown"> <a href="{% url 'news_detail_page' ai_tech.pk %}" class="media-left"> <img alt="" src="{{ ai_tech.image.url }}"> </a>
-                      <div class="media-body"> <a href="{% url 'news_detail_page' ai_tech.pk %}" class="catg_title">{{ai_tech.title}}</a> </div>
+                    <div class="media wow fadeInDown"> <a href="{{ai_tech.get_absolute_url}}" class="media-left"> <img alt="" src="{{ ai_tech.image.url }}"> </a>
+                      <div class="media-body"> <a href="{{ai_tech.get_absolute_url}}" class="catg_title">{{ai_tech.title}}</a> </div>
                     </div>
                   </li>
                   {% endfor %}
@@ -114,8 +114,8 @@
                   {% for defense_inventory in defense_inventory %}
                   {% if forloop.first %}
                   <li>
-                    <figure class="bsbig_fig wow fadeInDown"> <a href="{% url 'news_detail_page' defense_inventory.pk %}" class="featured_img"> <img alt="" src="{{ defense_inventory.image.url }}"> <span class="overlay"></span> </a>
-                      <figcaption> <a href="{% url 'news_detail_page' defense_inventory.pk %}">{{defense_inventory.title}}</a> </figcaption>
+                    <figure class="bsbig_fig wow fadeInDown"> <a href="{{defense_inventory.get_absolute_url}}" class="featured_img"> <img alt="" src="{{ defense_inventory.image.url }}"> <span class="overlay"></span> </a>
+                      <figcaption> <a href="{{defense_inventory.get_absolute_url}}">{{defense_inventory.title}}</a> </figcaption>
                       <p>{{defense_inventory.body}}</p>
                     </figure>
                   </li>
@@ -125,8 +125,8 @@
                 <ul class="spost_nav">
                   {% for defense_inventory in defense_inventory %}
                   <li>
-                    <div class="media wow fadeInDown"> <a href="{% url 'news_detail_page' defense_inventory.pk %}" class="media-left"> <img alt="" src="{{ defense_inventory.image.url }}"> </a>
-                      <div class="media-body"> <a href="{% url 'news_detail_page' defense_inventory.pk %}" class="catg_title">{{defense_inventory.title}}</a> </div>
+                    <div class="media wow fadeInDown"> <a href="{{defense_inventory.get_absolute_url}}" class="media-left"> <img alt="" src="{{ defense_inventory.image.url }}"> </a>
+                      <div class="media-body"> <a href="{{defense_inventory.get_absolute_url}}" class="catg_title">{{defense_inventory.title}}</a> </div>
                     </div>
                   </li>
                   {% endfor %}
@@ -153,8 +153,8 @@
                 {% for humanitarian_efforts in humanitarian_efforts %}
                 {% if forloop.first %}
                 <li>
-                  <figure class="bsbig_fig  wow fadeInDown"> <a class="featured_img" href="{% url 'news_detail_page' humanitarian_efforts.pk %}"> <img src="{{ humanitarian_efforts.image.url }}" alt=""> <span class="overlay"></span> </a>
-                    <figcaption> <a href="{% url 'news_detail_page' humanitarian_efforts.pk %}">{{humanitarian_efforts.title}}</a> </figcaption>
+                  <figure class="bsbig_fig  wow fadeInDown"> <a class="featured_img" href="{{humanitarian_efforts.get_absolute_url}}"> <img src="{{ humanitarian_efforts.image.url }}" alt=""> <span class="overlay"></span> </a>
+                    <figcaption> <a href="{{humanitarian_efforts.get_absolute_url}}">{{humanitarian_efforts.title}}</a> </figcaption>
                     <p>{{humanitarian_efforts.body}}</p>
                   </figure>
                 </li>
@@ -166,8 +166,8 @@
               <ul class="spost_nav">
                 {% for humanitarian_efforts in humanitarian_efforts %}
                 <li>
-                  <div class="media wow fadeInDown"> <a href="{% url 'news_detail_page' humanitarian_efforts.pk %}" class="media-left"> <img alt="" src="{{ humanitarian_efforts.image.url }}"> </a>
-                    <div class="media-body"> <a href="{% url 'news_detail_page' humanitarian_efforts.pk %}" class="catg_title">{{humanitarian_efforts.title}}</a> </div>
+                  <div class="media wow fadeInDown"> <a href="{{humanitarian_efforts.get_absolute_url}}" class="media-left"> <img alt="" src="{{ humanitarian_efforts.image.url }}"> </a>
+                    <div class="media-body"> <a href="{{humanitarian_efforts.get_absolute_url}}" class="catg_title">{{humanitarian_efforts.title}}</a> </div>
                   </div>
                 </li>
                 {% endfor %}
@@ -183,8 +183,8 @@
             <ul class="spost_nav">
               {% for news_list in news_list %}
               <li>
-                <div class="media wow fadeInDown"> <a href="{% url 'news_detail_page' news.pk %}" class="media-left"> <img alt="" src="{% static 'images/post_img1.jpg' %}"> </a>
-                  <div class="media-body"> <a href="{% url 'news_detail_page' news.pk %}" class="catg_title">{{news_list.title}}</a> </div>
+                <div class="media wow fadeInDown"> <a href="{{news_list.get_absolute_url}}" class="media-left"> <img alt="" src="{{news_list.image.url}}"> </a>
+                  <div class="media-body"> <a href="{{news_list.get_absolute_url}}" class="catg_title">{{news_list.title}}</a> </div>
                 </div>
               </li>
               {% endfor %}

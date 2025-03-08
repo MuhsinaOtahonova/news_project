@@ -1,0 +1,41 @@
+{% extends 'news/base.html' %}
+{% load static %}
+{% block title %} Defense Inventory Page {% endblock title %}
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6">
+            <div class="single_sidebar">
+                <ul class="spost_nav">
+                    {% for item in humanitarian_efforts|slice:":|length//2" %}
+                    <li>
+                        <div class="media wow fadeInDown"> <a href="{{item.get_absolute_url}}" class="media-left">
+                                <img alt="" src="{{item.image.url}}"> </a>
+                            <div class="media-body"> <a href="{{item.get_absolute_url}}"
+                                    class="catg_title">{{item.title}}</a> </div>
+                        </div>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6">
+            <div class="single_sidebar">
+                <ul class="spost_nav">
+                    {% for item in humanitarian_efforts|slice:"|length//2:" %}
+                    <li>
+                        <div class="media wow fadeInDown"> <a href="{{item.get_absolute_url}}" class="media-left">
+                                <img alt="" src="{{item.image.url}}"> </a>
+                            <div class="media-body"> <a href="{{item.get_absolute_url}}"
+                                    class="catg_title">{{item.title}}</a> </div>
+                        </div>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
