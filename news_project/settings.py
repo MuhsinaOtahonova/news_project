@@ -121,15 +121,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = '/home/djangomo/muhsina-projects.uz/django/staticfiles'
-STATICFILES_DIRS = ('/home/djangomo/muhsina-projects.uz/django/static',)
+STATIC_ROOT = '/home/djangomo/muhsina-projects.online/django/staticfiles'
+STATICFILES_DIRS = ('/home/djangomo/muhsina-projects.online/django/static',)
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 ]
 
 MEDIA_URL = 'media/'
-MEDIA_ROOT = '/home/djangomo/muhsina-projects.uz/django/media',
+MEDIA_ROOT = '/home/djangomo/muhsina-projects.online/django/media',
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
